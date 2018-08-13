@@ -1279,7 +1279,6 @@ def construct_tree(X, k, prune_threshold=None, num_levels=None, verbose=False):
     | 8  |    1.027    |   3.392   |   0.520    |  1.000   |  23  |   4    |    []    |
     +----+-------------+-----------+------------+----------+------+--------+----------+
     """
-
     sim_graph, radii = _utl.knn_graph(X, k, method='brute_force')
 
     n, p = X.shape
@@ -1373,7 +1372,6 @@ def construct_tree_from_graph(adjacency_list, density, prune_threshold=None,
     for i, level in enumerate(levels):
         if verbose and i % 100 == 0:
             _logging.info("iteration {}".format(i))
-
         ## figure out which points to remove, i.e. the background set.
         bg = _np.where((density > previous_level) & (density <= level))[0]
         previous_level = level
